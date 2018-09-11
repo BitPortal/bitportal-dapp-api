@@ -2,10 +2,9 @@
 #+AUTHOR: Terence Ge
 #+DATE: 2018-9-11
 
-* BitPortal Dapp Api
 BitPortal provides user-friendly api to help developers build dapps for EOS.
 
-** Setup
+* Setup
 When your dapp opened in BitPortal Dapp Browser, you'll have access to the api in window object.
 
 Example implementation:
@@ -30,21 +29,21 @@ document.addEventListener('bitportalapi', () => {
 }
 #+END_SRC
 
-** Api List
-*** EOS related api
-**** transferEOSAsset
-      + params
-        - amount: string | number
-        - precision: string | number
-        - symbol: string
-        - contract: string
-        - from: string
-        - to: string
-      + success return
-        - data: object (standard transaction data from eosjs)
-      + error return
-        - error: object
-          - message: string
+* Api List
+** EOS related api
+*** transferEOSAsset
+    + params
+      - amount: string | number
+      - precision: string | number
+      - symbol: string
+      - contract: string
+      - from: string
+      - to: string
+    + success return
+      - data: object (standard transaction data from eosjs)
+    + error return
+      - error: object
+        - message: string
 #+BEGIN_SRC javascript
 bitportal.transferEOSAsset({
   amount: '0.0001',
@@ -59,14 +58,14 @@ bitportal.transferEOSAsset({
   // ...
 })
 #+END_SRC
-**** getEOSAccountInfo
-      + params
-        - account: string
-      + success return
-        - data: object (standard eos account info from eosjs)
-      + error return
-        - error: object
-          - message: string
+*** getEOSAccountInfo
+    + params
+      - account: string
+    + success return
+      - data: object (standard eos account info from eosjs)
+    + error return
+      - error: object
+        - message: string
 #+BEGIN_SRC javascript
 bitportal.getEOSAccountInfo({
   account: 'inita'
@@ -76,18 +75,18 @@ bitportal.getEOSAccountInfo({
   // ...
 })
 #+END_SRC
-*** BitPortal related api
-**** getCurrentWallet
-      + no params
-      + success return
-        - data: object
-          - account: string
-          - publicKey: string
-          - permisssion: string
-          - info: object (standard eos account info from eosjs)
-      + error return
-        - error: object
-          - message: string
+** BitPortal related api
+*** getCurrentWallet
+    + no params
+    + success return
+      - data: object
+        - account: string
+        - publicKey: string
+        - permisssion: string
+        - info: object (standard eos account info from eosjs)
+    + error return
+      - error: object
+        - message: string
 #+BEGIN_SRC javascript
 bitportal.getCurrentWallet().then((data) => {
   // ...
