@@ -13,7 +13,7 @@ document.addEventListener('bitportalapi', () => {
   const bitportal = window.bitportal
   window.bitportal = null // Remember to remove the window reference for preventing other extensions using it.
 
-  // Then you can using the bitportal api to do the blockchain actions.
+  // Then you can use the bitportal api to do the blockchain actions.
   bitportal.transferEOSAsset({
     amount: '0.0001',
     symbol: 'EOS',
@@ -44,6 +44,7 @@ document.addEventListener('bitportalapi', () => {
     + error return
       - error: object
         - message: string
+example:
 #+BEGIN_SRC javascript
 bitportal.transferEOSAsset({
   amount: '0.0001',
@@ -58,6 +59,27 @@ bitportal.transferEOSAsset({
   // ...
 })
 #+END_SRC
+*** voteEOSProducers
+    + params
+      - voter: string
+      - producers: string[]
+      - proxy?: string
+    + success return
+      - data: object (standard transaction data from eosjs)
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.voteEOSProducers({
+  voter: 'init1',
+  producers: ['producerA', 'producerB']
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
 *** getEOSAccountInfo
     + params
       - account: string
@@ -66,6 +88,7 @@ bitportal.transferEOSAsset({
     + error return
       - error: object
         - message: string
+example:
 #+BEGIN_SRC javascript
 bitportal.getEOSAccountInfo({
   account: 'inita'
@@ -87,6 +110,7 @@ bitportal.getEOSAccountInfo({
     + error return
       - error: object
         - message: string
+example:
 #+BEGIN_SRC javascript
 bitportal.getCurrentWallet().then((data) => {
   // ...
