@@ -63,7 +63,6 @@ bitportal.transferEOSAsset({
     + params
       - voter: string
       - producers: string[]
-      - proxy?: string
     + success return
       - data: object (standard transaction data from eosjs)
     + error return
@@ -112,6 +111,46 @@ example:
 bitportal.getEOSCurrencyBalance({
   account: 'inita',
   contract: 'eosio.token'
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
+*** getEOSActions
+    + params
+      - account: string
+      - position: string | number
+      - offset: string | number
+    + success return
+      - data: object (standard eos action list from eosjs)
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.getEOSActions({
+  account: 'inita',
+  position: 0,
+  offset: 20,
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
+*** getEOSTransaction
+    + params
+      - id: string
+    + success return
+      - data: object (standard eos transaction info from eosjs)
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.getEOSTransaction({
+  id: '23905f75e15b710fbe2b42f404ffc5d5b9dd20878de63f8544b7d92a6632c23b',
 }).then((data) => {
   // ...
 }).catch((error) => {
