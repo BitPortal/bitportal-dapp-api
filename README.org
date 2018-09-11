@@ -98,6 +98,26 @@ bitportal.getEOSAccountInfo({
   // ...
 })
 #+END_SRC
+*** getEOSCurrencyBalance
+    + params
+      - account: string
+      - contract: string
+    + success return
+      - data: string[]
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.getEOSCurrencyBalance({
+  account: 'inita',
+  contract: 'eosio.token'
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
 ** BitPortal related api
 *** getCurrentWallet
     + no params
@@ -106,7 +126,6 @@ bitportal.getEOSAccountInfo({
         - account: string
         - publicKey: string
         - permisssion: string
-        - info: object (standard eos account info from eosjs)
     + error return
       - error: object
         - message: string
