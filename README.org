@@ -176,3 +176,21 @@ bitportal.getCurrentWallet().then((data) => {
   // ...
 })
 #+END_SRC
+*** getAppInfo
+    + no params
+    + success return
+      - data: object
+        - name: string
+        - platform: string
+        - version: string
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.getAppInfo().then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
