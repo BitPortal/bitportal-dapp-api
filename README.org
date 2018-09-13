@@ -157,6 +157,39 @@ bitportal.getEOSTransaction({
   // ...
 })
 #+END_SRC
+*** pushEOSAction
+    + params
+      - actions: array (standard eos actions)
+    + success return
+      - data: object (standard eos transaction info from eosjs)
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.pushEOSAction({
+  actions: [
+    {
+      account: 'eosio.token',
+      name: 'transfer',
+      authorization: [{
+        actor: 'terencegehui',
+        permission: 'active',
+      }],
+      data: {
+        from: 'terencegehui',
+        to: 'mythicalmind',
+        quantity: '0.0001 EOS',
+        memo: '',
+      }
+    }
+  ]
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
 ** BitPortal related api
 *** getCurrentWallet
     + no params
