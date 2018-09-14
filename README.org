@@ -31,6 +31,61 @@ document.addEventListener('bitportalapi', () => {
 
 * Api List
 ** EOS related api
+*** signEOSData
+    + params
+      - account: string
+      - publicKey: string
+      - signData: string
+    + success return
+      - data: string
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.signEOSData({
+  account: 'terencegehui',
+  publicKey: 'EOS7HJqPYpjaiMvPo5b5cv8ZCvFGKDLdgjXUzL9tyFG3kgAjoLMfE',
+  signData: 'hello, world'
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
+*** pushEOSAction
+    + params
+      - actions: array (standard eos actions)
+    + success return
+      - data: object (standard eos transaction info from eosjs)
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.pushEOSAction({
+  actions: [
+    {
+      account: 'eosio.token',
+      name: 'transfer',
+      authorization: [{
+        actor: 'terencegehui',
+        permission: 'active',
+      }],
+      data: {
+        from: 'terencegehui',
+        to: 'mythicalmind',
+        quantity: '0.0001 EOS',
+        memo: '',
+      }
+    }
+  ]
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
 *** transferEOSAsset
     + params
       - amount: string | number
@@ -151,61 +206,6 @@ example:
 #+BEGIN_SRC javascript
 bitportal.getEOSTransaction({
   id: '23905f75e15b710fbe2b42f404ffc5d5b9dd20878de63f8544b7d92a6632c23b',
-}).then((data) => {
-  // ...
-}).catch((error) => {
-  // ...
-})
-#+END_SRC
-*** pushEOSAction
-    + params
-      - actions: array (standard eos actions)
-    + success return
-      - data: object (standard eos transaction info from eosjs)
-    + error return
-      - error: object
-        - message: string
-example:
-#+BEGIN_SRC javascript
-bitportal.pushEOSAction({
-  actions: [
-    {
-      account: 'eosio.token',
-      name: 'transfer',
-      authorization: [{
-        actor: 'terencegehui',
-        permission: 'active',
-      }],
-      data: {
-        from: 'terencegehui',
-        to: 'mythicalmind',
-        quantity: '0.0001 EOS',
-        memo: '',
-      }
-    }
-  ]
-}).then((data) => {
-  // ...
-}).catch((error) => {
-  // ...
-})
-#+END_SRC
-*** signEOSData
-    + params
-      - account: string
-      - publicKey: string
-      - signData: string
-    + success return
-      - data: string
-    + error return
-      - error: object
-        - message: string
-example:
-#+BEGIN_SRC javascript
-bitportal.signEOSData({
-  account: 'terencegehui',
-  publicKey: 'EOS7HJqPYpjaiMvPo5b5cv8ZCvFGKDLdgjXUzL9tyFG3kgAjoLMfE',
-  signData: 'hello, world'
 }).then((data) => {
   // ...
 }).catch((error) => {
