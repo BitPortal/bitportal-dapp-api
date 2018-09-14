@@ -190,6 +190,28 @@ bitportal.pushEOSAction({
   // ...
 })
 #+END_SRC
+*** signEOSData
+    + params
+      - account: string
+      - publicKey: string
+      - signData: string
+    + success return
+      - data: string
+    + error return
+      - error: object
+        - message: string
+example:
+#+BEGIN_SRC javascript
+bitportal.signEOSData({
+  account: 'terencegehui',
+  publicKey: 'EOS7HJqPYpjaiMvPo5b5cv8ZCvFGKDLdgjXUzL9tyFG3kgAjoLMfE',
+  signData: 'hello, world'
+}).then((data) => {
+  // ...
+}).catch((error) => {
+  // ...
+})
+#+END_SRC
 ** BitPortal related api
 *** getCurrentWallet
     + no params
