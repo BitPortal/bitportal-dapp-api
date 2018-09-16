@@ -31,7 +31,7 @@ document.addEventListener('bitportalapi', () => {
 
 * Api List
 ** EOS related api
-*** signEOSData
+*** eosAuthSign
     + params
       - account: string
       - publicKey: string
@@ -43,7 +43,7 @@ document.addEventListener('bitportalapi', () => {
         - message: string
 example:
 #+BEGIN_SRC javascript
-bitportal.signEOSData({
+bitportal.eosAuthSign({
   account: 'terencegehui',
   publicKey: 'EOS7HJqPYpjaiMvPo5b5cv8ZCvFGKDLdgjXUzL9tyFG3kgAjoLMfE',
   signData: 'hello, world'
