@@ -36,6 +36,7 @@ document.addEventListener('bitportalapi', () => {
       - account: string
       - publicKey: string
       - signData: string
+      - isHash?: boolean (default is false)
     + success return
       - data: string
     + error return
