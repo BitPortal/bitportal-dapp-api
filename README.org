@@ -4,6 +4,8 @@
 
 BitPortal provides user-friendly api to help developers build dapps for EOS.
 
+(Deprecated due to the popularity of Scatter)
+
 * Setup
 When your dapp opened in BitPortal Dapp Browser, you'll have access to the api in window object.
 
